@@ -52,10 +52,10 @@ if ($result -eq "0000" ) {
     if ($result -eq "0000" ) {
     write-output "Ocorreram falhas"
     $usernames = Get-ChildItem c:\users -directory | ForEach-Object { Write-output $_.Name }
-    ForEach ($line in $($usernames -split "`r`n")) { msg $line HOUVERAM FALHAS DE CONEXAO COM A INTERNET, VERIFIQUE SE SUA INTERNET ESTA FUNCIONAL }
+    ForEach ($line in $($usernames -split "`r`n")) { msg /TIME:30 $line HOUVERAM FALHAS DE CONEXAO COM A INTERNET, VERIFIQUE SE SUA INTERNET ESTA FUNCIONAL }
     } else {
     $usernames = Get-ChildItem c:\users -directory | ForEach-Object { Write-output $_.Name }
-    ForEach ($line in $($usernames -split "`r`n")) { msg $line $argmsg }
+    ForEach ($line in $($usernames -split "`r`n")) { msg /TIME:30 $line $argmsg }
     }
 } else {
     write-output "Teste OK"
