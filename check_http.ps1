@@ -1,4 +1,4 @@
-# Create the request
+# Create the request-
 $ErrorActionPreference = "SilentlyContinue"
 write-output $args[2] > "c:\puppet\arquivos\check_httpversion"
 function httptest {
