@@ -1,5 +1,6 @@
 # Create the request
 $ErrorActionPreference = "SilentlyContinue"
+write-output $args[2] > "c:\puppet\arquivos\check_httpversion"
 function httptest {
 Param($url)
 $HTTP_Request = [System.Net.WebRequest]::Create("$url")
@@ -32,7 +33,7 @@ write-output $teste4
 Start-Sleep 1
 $result = $teste1+$teste2+$teste3+$teste4
 write-output $result
-write-output $args[2] > "c:\puppet\arquivos\check_httpversion"
+
 if ($result -eq "0000" ) {
     Start-Sleep 2
     $teste1 = httptest -url "https://www.google.com"
