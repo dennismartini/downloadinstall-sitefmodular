@@ -17,6 +17,7 @@ Else {
 $HTTP_Response.Close()
 }
 $argurl = $args[0]
+$argmsg = $args[1]
 $teste1 = httptest -url $argurl
 write-output $teste1
 Start-Sleep 1
@@ -53,7 +54,7 @@ if ($result -eq "0000" ) {
     ForEach ($line in $($usernames -split "`r`n")) { msg $line HOUVERAM FALHAS DE CONEXAO COM A INTERNET, VERIFIQUE SE SUA INTERNET ESTA FUNCIONAL }
     } else {
     $usernames = Get-ChildItem c:\users -directory | ForEach-Object { Write-output $_.Name }
-    ForEach ($line in $($usernames -split "`r`n")) { msg $line HOUVERAM FALHAS DE CONEXAO COM O PORTAL ELOS }
+    ForEach ($line in $($usernames -split "`r`n")) { msg $line $argmsg }
     }
 } else {
     write-output "Teste OK"
